@@ -1,6 +1,6 @@
 {
   "name": "images-service",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Express Node JS package that supports image saving with drag and drop functionalities on the front end. More information and documentation has to be written. Works great in combination with the ng-image-upload-directive.",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,17 @@
   "license": "ISC",
   "dependencies": {
     "image-type": "^1.1.0",
+    "path": "^0.4.9",
     "read-chunk": "^1.0.0",
     "shortid": "^2.1.3"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tomreunes/image-service.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tomreunes/image-service/issues"
+  },
+  "homepage": "https://github.com/tomreunes/image-service"
 }
