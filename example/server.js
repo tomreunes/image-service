@@ -2,7 +2,7 @@
 var $express = require('express'),
     $multipart = require('connect-multiparty'),
     $cors = require('cors'),
-    $imgService = require('../');
+    $imgService = require('images-service');
 
 var app = $express();
 
