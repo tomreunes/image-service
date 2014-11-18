@@ -2,7 +2,7 @@
 var $express = require('express'),
     $multipart = require('connect-multiparty'),
     $cors = require('cors'),
-    $imgService = require('images-service');
+    $imgService = require('../');
 
 var app = $express();
 
@@ -32,8 +32,10 @@ app
             return;
         }
         var files = req.files.file;
-        var images = $imgService.upload(files);
-        res.status(200).send(images);
+        $imgService.upload(files).then(function(data){
+            res.status(200).send(data);
+        }).done();
+        //res.status(200).send(images);
     })
     .put(routes.apiRoute+':filename', function (req, res) {
         var filename = req.params.filename;
