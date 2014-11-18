@@ -8,7 +8,8 @@ var app = $express();
 
 var routes = {
     root: __dirname,
-    apiRoute: '/api/images'
+    apiRoute: '/api/images/',
+    debug: true
 };
 
 //Tell server where to store images locally and how to retrieve them from client side
@@ -34,6 +35,8 @@ app
         var files = req.files.file;
         $imgService.upload(files).then(function(data){
             res.status(200).send(data);
+        }).catch(function(err){
+            res.status(400).send(err);
         }).done();
         //res.status(200).send(images);
     })
