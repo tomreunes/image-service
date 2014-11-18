@@ -42,8 +42,12 @@ app
     })
     .put(routes.apiRoute+':filename', function (req, res) {
         var filename = req.params.filename;
-        var image = $imgService.confirm(filename);
-        res.status(200).send(image);
+        $imgService.confirm(filename).then(function(data){
+            res.status(200).send(data);
+        }).catch(function(err){
+            res.status(400).send(err);
+        }).done();
+        //res.status(200).send(image);
     })
     .get(routes.apiRoute+':filename', function (req, res) {
         var filename = req.params.filename;
