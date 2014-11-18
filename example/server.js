@@ -55,8 +55,11 @@ app
     })
     .delete(routes.apiRoute+':filename',function(req,res){
         var filename = req.params.filename;
-        $imgService.delete(filename);
-        res.status(200).send('Succesfully removed!');
+        $imgService.delete(filename).then(function(){
+            res.status(200).send('Succesfully removed!');
+        }).catch(function(err){
+            res.status(400).send(err);
+        });
     });
 
 app.listen(3000);
